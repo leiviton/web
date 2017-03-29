@@ -1,0 +1,48 @@
+<div class="full-page" data-image="/assets/img/login.png" ng-controller="LoginCtrl">
+    <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3 login-set">
+                    <form class="login" ng-submit="login()">
+                        <img src="/assets/img/logo_.png" style="margin-left: 58px">
+                        <!--{!! csrf_field() !!}-->
+                        <div class="card card-login">
+                            <div class="card-header text-center" data-background-color="blue">
+                                <h4 class="card-title">Login</h4>
+                            </div>
+                            <div class="card-content">
+                                <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">face</i>
+                                            </span>
+                                    <div class="form-group label-floating is-empty">
+                                        <label class="control-label">Seu login</label>
+                                        <input type="text" class="form-control" name="email" ng-model="User.username">
+                                        <span class="material-input"></span>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">lock_outline</i>
+                                            </span>
+                                    <div class="form-group label-floating is-empty">
+                                        <label class="control-label">Password</label>
+                                        <input type="password" class="form-control" name="password" ng-model="User.password">
+                                        <span class="material-input"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="footer text-center col-xs-12 col-md-12 col-sm-12 col-lg-12">
+                                <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6"><button type="submit" class="btn btn-info">Entrar</button></div>
+                                <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6"><a class="btn btn-danger btn-simple" href="{{ url('/password/email') }}">Esqueceu senha?</a></div>
+                                <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12"> <a class="btn btn-info btn-simple" href="https://direta.net.br/register/">Primeiro acesso?</a></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
