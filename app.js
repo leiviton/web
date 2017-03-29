@@ -9,7 +9,7 @@ angular.module('mobileos', ['angular-oauth2'])
             deliveryman:'deliveryman.home'
         }
     })
-    .config(function (OAuthProvider,OAuthTokenProvider,appConfig,$provide,$urlRouterProvider,$stateProvider) {
+    .config(function (OAuthProvider,OAuthTokenProvider,appConfig,$provide) {
         OAuthProvider.configure({
             baseUrl: appConfig.baseUrl,
             clientId: 'appid01',
@@ -24,14 +24,7 @@ angular.module('mobileos', ['angular-oauth2'])
             }
         });
 
-        $stateProvider
-            .state('login',{
-                url:'/',
-                templateUrl:'templates/login.html',
-                controller:'LoginCtrl'
-            });
-
-        $urlRouterProvider.otherwise("/login");
+        
 
         $provide.decorator('OAuthToken',['$localStorage','$delegate',function ($localStorage,$delegate) {
             Object.defineProperties($delegate,{
