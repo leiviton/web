@@ -1,4 +1,4 @@
-angular.module('mobileos', ['angular-oauth2'])
+angular.module('mobileos', ['angular-oauth2','ngRoute'])
     .constant('appConfig',{
         //baseUrl:'http://leiviton.com.br/direta_dev/public',
         //baseUrl:'https://direta.net.br/app/public',
@@ -9,7 +9,7 @@ angular.module('mobileos', ['angular-oauth2'])
             deliveryman:'deliveryman.home'
         }
     })
-    .config(function (OAuthProvider,OAuthTokenProvider,appConfig,$provide) {
+    .config(function (OAuthProvider,OAuthTokenProvider,appConfig,$provide,$urlRouterProvider,$stateProvider) {
         OAuthProvider.configure({
             baseUrl: appConfig.baseUrl,
             clientId: 'appid01',
@@ -24,7 +24,14 @@ angular.module('mobileos', ['angular-oauth2'])
             }
         });
 
-        
+        $stateProvider
+            .state('login',{
+                url:'/login',
+                templateUrl:'templates/login.html',
+                controller:'LoginCtrl'
+            });
+
+        $urlRouterProvider.otherwise("/login");
 
         $provide.decorator('OAuthToken',['$localStorage','$delegate',function ($localStorage,$delegate) {
             Object.defineProperties($delegate,{
