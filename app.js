@@ -26,10 +26,11 @@ angular.module('mobileos', ['angular-oauth2'])
 
         $stateProvider
             .state('login',{
-                url:'/login',
+                url:'/',
                 templateUrl:'templates/login.html',
                 controller:'LoginCtrl'
             });
+
         $urlRouterProvider.otherwise("/login");
 
         $provide.decorator('OAuthToken',['$localStorage','$delegate',function ($localStorage,$delegate) {
